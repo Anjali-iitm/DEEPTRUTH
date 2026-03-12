@@ -54,7 +54,22 @@
           const [user, setUser] = useState(null);
           const [activeTab, setActiveTab] = useState('architecture'); 
           
-          const [dbRecords, setDbRecords] = useState([]);
+          const [dbRecords, setDbRecords] = useState([
+  {
+    id: "official-baseline-001",
+    name: "Your_Video_Name.mp4", // CHANGE THIS to your actual filename
+    author: "DeepTruth Verified Official",
+    timestamp: 1710240000000,
+    dateAdded: new Date().toLocaleDateString(),
+    frameHashes: [
+      {time: "0.50", hash: "a1b2c3d4e5f6g7h8"}, // Dummy hashes so the logic works
+      {time: "1.50", hash: "b2c3d4e5f6g7h8i9"},
+      {time: "2.50", hash: "c3d4e5f6g7h8i9j0"},
+      {time: "3.50", hash: "d4e5f6g7h8i9j0k1"},
+      {time: "4.50", hash: "e5f6g7h8i9j0k1l2"}
+    ]
+  }
+]);
           const [originalFile, setOriginalFile] = useState(null);
           const [originalUrl, setOriginalUrl] = useState(null);
           const [isRegistering, setIsRegistering] = useState(false);
