@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEEPTRUTH</title>
+    <title>DEEPTRUTH - Verification System</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-    <div id="root"></div>
-    <script type="module">
-        // Your logic will go here
-        document.getElementById('root').innerHTML = `
-            <div class="p-10 text-center">
-                <h1 class="text-4xl font-bold text-indigo-600">DEEPTRUTH</h1>
-                <p class="mt-4 text-gray-600">Cloud Database Verification System</p>
-                <div class="mt-10 p-6 bg-white shadow-xl rounded-lg">
-                    <p>App is Loading...</p>
-                </div>
-            </div>
-        `;
+<body class="bg-slate-900 text-white font-sans">
+    <div id="root" class="min-h-screen flex flex-col items-center justify-center p-4">
+        <h1 class="text-5xl font-bold mb-4 text-indigo-400">DEEPTRUTH</h1>
+        <p class="text-xl text-slate-300 mb-8">Cloud Database Verification System</p>
+        
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-2xl border border-slate-700 w-full max-w-md text-center">
+            <h2 class="text-2xl mb-4">Upload Media for Analysis</h2>
+            <input type="file" id="videoUpload" class="block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 mb-6"/>
+            <button onclick="alert('Analysis Started: Checking for manipulations...')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition-all">
+                Run Verification
+            </button>
+        </div>
+    </div>
+
+    <script>
+        console.log("DeepTruth System Active.");
+        // If you have specific JS logic, paste it here inside these script tags.
     </script>
 </body>
 </html>
