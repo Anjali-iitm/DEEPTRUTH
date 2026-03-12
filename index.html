@@ -54,24 +54,7 @@
           const [user, setUser] = useState(null);
           const [activeTab, setActiveTab] = useState('architecture'); 
           
-          const [dbRecords, setDbRecords] = useState([
-            {
-              id: "permanent-v1-authentic",
-              name: "Original_Video.mp4", // CHANGE THIS to your 1st filename
-              author: "Verified Official Source",
-              timestamp: 1710240000000,
-              dateAdded: "03/12/2026",
-              frameHashes: Array(8).fill(0).map((_, i) => ({ time: i.toString(), hash: Math.random().toString(16).slice(2, 18) }))
-            },
-            {
-              id: "permanent-v2-secondary",
-              name: "trimmed_clip.mp4", // CHANGE THIS to your 2nd filename
-              author: "DeepTruth Forensic Dept",
-              timestamp: 1710240000001,
-              dateAdded: "03/12/2026",
-              frameHashes: Array(8).fill(0).map((_, i) => ({ time: i.toString(), hash: Math.random().toString(16).slice(2, 18) }))
-            }
-          ]);
+          const [dbRecords, setDbRecords] = useState([]);
           const [originalFile, setOriginalFile] = useState(null);
           const [originalUrl, setOriginalUrl] = useState(null);
           const [isRegistering, setIsRegistering] = useState(false);
@@ -181,7 +164,8 @@
               setProgress(0);
               setScanStage('');
           };
-            const runVerification = async () => {
+
+          const runVerification = async () => {
             if (!suspectVideoRef.current) return; setIsAnalyzing(true);
             try {
               setScanStage('Extracting Suspicious Video Fingerprints...'); setProgress(30); const suspectHashes = await extractVideoHashes(suspectVideoRef.current, 8);
@@ -198,30 +182,7 @@
                   if (matchingFrames > highestMatchFrames) { highestMatchFrames = matchingFrames; bestDbMatch = record; bestMatchLog = currentMatchLog; }
                 }
               } else { bestMatchLog = suspectHashes.map(h => ({...h, distance: Math.floor(Math.random()*30), isMatch: Math.random() > 0.5})); highestMatchFrames = bestMatchLog.filter(m => m.isMatch).length; }
-  
-              setIsAnalyzing(false);
-            } catch (error) { 
-              setScanStage('Analysis Failed'); 
-              setIsAnalyzing(false); 
-            }
-          };
-         
-            await new Promise(r => setTimeout(r, 1000)); 
-              setProgress(100);
-
-              // --- FINAL DEMO MATCHING LOGIC ---
-              // This checks if the uploaded file name matches our hardcoded registry
-              const isPermanentMatch = dbRecords.some(r => r.name === suspectFile.name);
-              
-              const finalVerdict = isPermanentMatch ? 'AUTHENTIC MATCH' : 'NO MATCH / DEEPFAKE';
-              const finalAnomaly = isPermanentMatch ? 0 : 94;
-
-              setAnalysisResults({ 
-                verdict: finalVerdict, 
-                anomalyScore: finalAnomaly, 
-                matchPercentage: isPermanentMatch ? 100 : 0 
-              });
-              setIsAnalyzing(false);
+              await new Promise(r => setTimeout(r, 1000)); setProgress(100);
               const matchPercentage = (highestMatchFrames / suspectHashes.length) * 100; const anomalyScore = bestDbMatch ? Math.max(0, 100 - matchPercentage) : (suspectFile.size % 100);
               setAnalysisResults({ matchedRecord: bestDbMatch, frames: bestMatchLog, anomalyScore: Math.round(anomalyScore), matchPercentage: Math.round(matchPercentage), verdict: bestDbMatch ? (anomalyScore < 20 ? 'AUTHENTIC MATCH' : anomalyScore < 60 ? 'EDITED / CUT VIDEO' : 'NO MATCH / DEEPFAKE') : (anomalyScore < 50 ? 'LIKELY AUTHENTIC' : 'MANIPULATION DETECTED') });
               setIsAnalyzing(false);
