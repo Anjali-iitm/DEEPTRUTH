@@ -35,3 +35,11 @@ Because this project utilizes Babel standalone and ESM imports, it requires zero
 1. Clone this repository or download the code.
 2. Open the `index.html` file in any modern web browser.
 3. The React app will compile and run instantly!
+
+## 👥 Team Members
+* **Varad Aphale** (Technical documentation & Research)
+* **Saloni Sharma** (Design & Documentation)
+* **Mahima R** (Research & Analysis)
+* **Raulo Netrananda**(Research & Analysis)
+* **Priyanshu Raj** (Design & Product Strategic)
+* * **Anjali Yadav** (Developer & Product Strategic) 
