@@ -7,15 +7,14 @@ Combat deepfakes and AI-generated misinformation with cryptographic hashing and 
 
 ## 🧪 How to Test the Live Demo (Important!)
 
-The DeepTruth database is already pre-loaded with an authentic, verified original video. To test the system's AI detection, please follow these simple steps:
+Since DeepTruth uses a **Privacy-First Local Ledger**, the database starts empty in new browser sessions (like Incognito). To see the AI Verification in action, please follow these steps:
 
-1. **Download the Test Files:** Download the two short test videos from this Google Drive link: 
-   * *Video 1* (Authentic) **(https://drive.google.com/file/d/1zbQAjrfdv-X9keON67EWr6ylI7cjpe8M/view?usp=drive_link)**
-   * *Video 2* (Deepfake/Altered) **(https://drive.google.com/file/d/1lyeBdJrt8aCXW9xOlhps07tcpBWpl4lP/view?usp=drive_link)**
-2. **Go to the Forensics Lab:** Open the Live App and click on the **FORENSICS LAB** tab.
-3. **Test a Match:** Upload **Video 1**. Click "Scan Against Database Records." The system will cross-reference the hashes with the pre-loaded original video and output a **100% Authentic Match** (Green).
-4. **Test an Anomaly:** Click the "Scan Another Video" button. Upload **Video 2**. The system will scan its frames, detect the manipulation, and correctly flag it as **NO MATCH / DEEPFAKE** (Red). 
-5. **Try Your Own Video!** Want to test its limits? Upload any random video from your own computer. Since its cryptographic fingerprint isn't in our secure database, the system will instantly catch it and output a **NO MATCH**.
+REGISTER: Go to the VERIFIED DATABASE tab, upload a video, and click Save to Secure Cloud.
+
+VERIFY: Go to the FORENSICS LAB tab, upload the SAME video, and scan it. It will show AUTHENTIC MATCH (Green).
+
+TEST FAKE: Upload any OTHER video. It will show DEEPFAKE (Red) because it's not in our registry.
+
 ---
 
 ## 🚀 Key Features
