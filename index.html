@@ -181,8 +181,7 @@
               setProgress(0);
               setScanStage('');
           };
-
-          const runVerification = async () => {
+            const runVerification = async () => {
             if (!suspectVideoRef.current) return; setIsAnalyzing(true);
             try {
               setScanStage('Extracting Suspicious Video Fingerprints...'); setProgress(30); const suspectHashes = await extractVideoHashes(suspectVideoRef.current, 8);
@@ -199,7 +198,9 @@
                   if (matchingFrames > highestMatchFrames) { highestMatchFrames = matchingFrames; bestDbMatch = record; bestMatchLog = currentMatchLog; }
                 }
               } else { bestMatchLog = suspectHashes.map(h => ({...h, distance: Math.floor(Math.random()*30), isMatch: Math.random() > 0.5})); highestMatchFrames = bestMatchLog.filter(m => m.isMatch).length; }
-              await new Promise(r => setTimeout(r, 1000)); 
+          
+         
+            await new Promise(r => setTimeout(r, 1000)); 
               setProgress(100);
 
               // --- FINAL DEMO MATCHING LOGIC ---
