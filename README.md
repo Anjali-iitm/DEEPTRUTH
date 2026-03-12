@@ -42,4 +42,4 @@ Because this project utilizes Babel standalone and ESM imports, it requires zero
 * **Mahima R** (Research & Analysis)
 * **Raulo Netrananda**(Research & Analysis)
 * **Priyanshu Raj** (Design & Product Strategic)
-* * **Anjali Yadav** (Developer & Product Strategic) 
+* **Anjali Yadav** (Developer & Product Strategic) 
